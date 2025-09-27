@@ -1,0 +1,25 @@
+# Videos Directory
+
+This directory contains video demos and tutorials for EasyConfigs.
+
+## Required Videos:
+
+### Feature Demonstrations
+- `configuration-demo.mp4` - Step-by-step visual configuration process
+  - Should show: Plugin selection → Form filling → Real-time YAML generation → Export
+  - Duration: 30-60 seconds
+  - Format: MP4, optimized for web
+  - Resolution: 1080p or higher
+
+### Tutorial Videos (Future)
+- `getting-started.mp4` - Complete getting started tutorial
+- `mythicmobs-demo.mp4` - MythicMobs specific configuration demo
+- `custom-schema.mp4` - How to add custom plugin schemas
+
+## Video Guidelines:
+- Keep file sizes under 10MB when possible
+- Use MP4 format with H.264 encoding
+- Include captions/subtitles when possible
+- Show clear UI interactions and results
+- Use consistent branding and color scheme
+- Include smooth transitions and clear narration

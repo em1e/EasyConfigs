@@ -1,0 +1,71 @@
+---
+title: Introduction
+description: How to define and register your own custom schemas in YAMLCraft.
+---
+
+import { Callout } from 'fumadocs-ui/components/callout'
+
+YAMLCraft supports custom schemas to help validate and autocomplete your YAML files based on your specific use case.
+
+This is useful for:
+
+- Configuring CI/CD pipelines
+- Defining game object structures
+- Creating repeatable infrastructure configs for purposes
+
+---
+
+## Step 1: Define Your Schema
+
+Create a `.json` or `.yaml` schema file that matches your expected structure:
+
+### ✅ Example: `my-schema.json`
+
+```yaml
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Game Object",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the object"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["npc", "item", "environment"]
+    },
+    "position": {
+      "type": "array",
+      "items": { "type": "number" },
+      "minItems": 3,
+      "maxItems": 3
+    }
+  },
+  "required": ["name", "type", "position"]
+}
+```
+
+---
+
+## Step 2: Create a new schema on YAMLcraft
+Find Generators > Custom Schemas > Create new to start creating a new schema. Ontop of loading the file there are a handful of settings you can choose from:
+- Name, Minecraft Edition, and Version
+- Is it a Mod or Plugin
+- Is it Public or Private
+- Does it output Yaml or Json files
+
+Useful resources:
+- 📘 [How to version schemas?](https://semver.org/)
+- 📘 [How to create or find a schema?](/docs/custom-schemas/troubleshooting)
+- 📘 [New to minecraft development?](/docs/mc-dev-101/introduction)
+
+💡 _This schema can now be used to create YAML files in the future too._
+
+---
+
+## Next: Creating files using the custom schema
+Your custom schemas should automatically get added into your schema library, meaning if you create a new file using generator > new file it should give it to you as an option.
+
+💡 _If you for some reason do not see it there, then double check the schema, ask for help on our discord server or contant support._
+

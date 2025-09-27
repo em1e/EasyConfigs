@@ -1,0 +1,12 @@
+{
+  "pages": [
+    "index",
+    "[How to set up a local dev server](/docs/mc-dev-101/how-to-set-up-a-local-dev-server)",
+    "[Adding your first plugin](/docs/mc-dev-101/adding-your-first-plugin)",
+    "[Creating your first plugin](/docs/mc-dev-101/creating-your-first-plugin)",
+    "[10 starter plugin ideas](/docs/mc-dev-101/10-starter-plugin-ideas)",
+    "[YAML syntax](/docs/mc-dev-101/yaml-syntax)",
+    "[JSON syntax](/docs/mc-dev-101/json-syntax)",
+    "[Basics of java](/docs/mc-dev-101/basics-of-java)"
+  ]
+}

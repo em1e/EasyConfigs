@@ -1,0 +1,152 @@
+{
+	"MobTemplate": {
+		"Type": "<EntityType>",
+		"Display": "<String>",
+		"Faction": "<String>",
+		"Health": 40,
+		"Damage": 8,
+		"Armor": 2,
+		"HealthBar": {
+			"Enabled":  ["false", "true"],
+			"Offset": 1
+		},
+		"BossBar": {
+			"Enabled": ["false", "true"],
+			"Title": "<String>",
+			"Range": 50,
+			"Color": [
+				"PINK",
+				"BLUE",
+				"RED",
+				"GREEN",
+				"YELLOW",
+				"PURPLE",
+				"WHITE"
+			],
+			"Style": [
+				"SOLID",
+				"SEGMENTED_6",
+				"SEGMENTED_10",
+				"SEGMENTED_12",
+				"SEGMENTED_20"
+			],
+			"CreateFog": ["false", "true"],
+			"DarkenSky": ["false", "true"],
+			"PlayMusic": ["false", "true"]
+		},
+		"DisplayOptions": {
+			"Glow": ["false", "true"],
+			"CustomName": "<CustomName>"
+		},
+		"AIGoalSelectors": ["MOVE_TO_TARGET", "ATTACK_PLAYER"],
+		"AITargetSelectors": ["NEAREST_PLAYER", "NEAREST_MOB"],
+		"Skills": [
+			{
+				"Name": "<Skill>",
+				"Mechanic": "<Mechanic>",
+				"Parameters": {
+					"<ParameterName>": "<Value>"
+				}
+			},
+			{
+				"Name": "disguise",
+				"Mechanic": "disguise",
+				"Parameters": {
+					"Target":["self","attacker","targeted_entity"],
+					"DisguiseType": "<mobs>",
+					"Options":{
+						"Disguise.Burning": ["false", "true"],
+						"Disguise.Spinning": ["false", "true"],
+						"Disguise.Invisible": ["false", "true"]
+					}
+				}
+			},
+			{
+				"Name": "HealSelf",
+				"Mechanic": "Heal",
+				"Parameters": {
+					"Amount": 10
+				}
+			}
+		],
+		"Drops": ["IRON_SWORD", "ROTTEN_FLESH"],
+		"DamageModifiers": ["FIRE_RESISTANT"],
+		"Equipment": {
+			"Chestplates": [
+				"LEATHER_CHESTPLATE",
+				"CHAINMAIL_CHESTPLATE",
+				"IRON_CHESTPLATE",
+				"GOLDEN_CHESTPLATE",
+				"DIAMOND_CHESTPLATE",
+				"NETHERITE_CHESTPLATE"
+			],
+			"Boots": [
+				"LEATHER_BOOTS",
+				"CHAINMAIL_BOOTS",
+				"IRON_BOOTS",
+				"GOLDEN_BOOTS",
+				"DIAMOND_BOOTS",
+				"NETHERITE_BOOTS"
+			],
+			"Leggings": [
+				"LEATHER_LEGGINGS",
+				"CHAINMAIL_LEGGINGS",
+				"IRON_LEGGINGS",
+				"GOLDEN_LEGGINGS",
+				"DIAMOND_LEGGINGS",
+				"NETHERITE_LEGGINGS"
+			]
+		},
+		"Disguise": "SKELETON",
+		"DisguiseOptions": {
+			"Disguise.Burning": ["false", "true"],
+			"Disguise.Blocking": ["false", "true"],
+			"Disguise.Invisible": ["false", "true"],
+			"Disguise.Name": "Zombie",
+			"Disguise.ShowName": ["false", "true"]
+		},
+		"Options": {
+			"AlwaysShowName": ["false", "true"],
+			"AttackSpeed": 1.2,
+			"VisibleByDefault": ["false", "true"],
+			"Invisible": ["false", "true"],
+			"Collidable": ["false", "true"],
+			"DigOutOfGround": ["false", "true"],
+			"Despawn": [
+				"true",
+				"false",
+				"chunk",
+				"persistent",
+				"never",
+				"npc"
+			],
+			"FollowRange": 35,
+			"Glowing": ["false", "true"],
+			"HealOnReload": ["false", "true"],
+			"KnockbackResistance": 0.1,
+			"MaxCombatDistance": 50,
+			"MovementSpeed": 0.25,
+			"Marker": ["false", "true"],
+			"Small": ["false", "true"],
+			"LockPitch": ["false", "true"],
+			"Invincible": ["false", "true"],
+			"Interactable": ["false", "true"],
+			"NoAI": ["false", "true"],
+			"NoDamageTicks": 20,
+			"NoGravity": ["false", "true"],
+			"PassthroughDamage": ["false", "true"],
+			"Persistent": ["false", "true"],
+			"PreventItemPickup": ["false", "true"]
+		},
+		"Modules": {
+			"ThreatTable": ["false", "true"],
+			"ImmunityTable": ["false", "true"],
+			"ThreatMultiplier": 1.5
+		},
+		"Variables": {
+			"SpawnPoint": "Village",
+			"Level": 5
+		},
+		"Trades": ["TRADE_ITEM_1", "TRADE_ITEM_2"]
+	}
+}

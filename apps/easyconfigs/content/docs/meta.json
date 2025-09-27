@@ -1,0 +1,11 @@
+{
+  "root": true,
+  "pages": [
+    "(root)",
+    "get-started",
+    "custom-schemas",
+    "support",
+    "payment-plans",
+    "mc-dev-101"
+  ]
+}

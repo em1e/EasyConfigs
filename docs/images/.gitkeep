@@ -1,0 +1,31 @@
+# Images Directory
+
+This directory contains images for the EasyConfigs documentation and README.
+
+## Required Images:
+
+### Logo & Branding
+- `logo.png` - Main EasyConfigs logo for README header
+- `mie-avatar.png` - Creator avatar/profile image
+
+### Feature Screenshots
+- `config-interface.png` - Visual configuration interface screenshot
+- `responsive.png` - Responsive design showcase across devices
+
+### How It Works Screenshots
+- `step1.png` - Plugin selection step
+- `step3.png` - Preview & export step
+
+### Additional Screenshots (for expandable section)
+- `dashboard.png` - Main dashboard view
+- `plugin-selection.png` - Plugin selection interface
+- `mythicmobs-config.png` - MythicMobs configuration example
+- `yaml-preview.png` - YAML output preview
+- `mobile-view.png` - Mobile experience screenshot
+
+## Image Guidelines:
+- Use PNG format for screenshots with transparency
+- Optimize images for web (keep under 500KB when possible)
+- Use consistent styling and color scheme
+- Include dark/light mode versions if applicable
+- Resolution: 1200x800 or higher for main screenshots

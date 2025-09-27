@@ -1,0 +1,10 @@
+{
+  "title": "Get Started",
+  "pages": [
+    "[About](/docs/about)",
+    "[Getting Started](/docs/get-started)",
+    "[Changelog](/docs/changelog)",
+    "[Contribute](/docs/contribute)",
+    "[FAQ](/docs/faq)"
+  ]
+}

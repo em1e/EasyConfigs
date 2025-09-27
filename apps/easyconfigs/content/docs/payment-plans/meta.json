@@ -1,0 +1,11 @@
+{
+  "title": "Payment Plans",
+  "pages": [
+    "index",
+    "[Free Plan](/docs/payment-plans/free)",
+    "[Basic Plan](/docs/payment-plans/basic)",
+    "[Pro Plan](/docs/payment-plans/pro)",
+    "[Pro+ Plan](/docs/payment-plans/pro_plus)",
+    "[Team Plan](/docs/payment-plans/team)"
+  ]
+}

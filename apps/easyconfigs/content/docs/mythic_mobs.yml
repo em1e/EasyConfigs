@@ -1,0 +1,84 @@
+<InternalMobName>:
+  Type: <EntityType>
+  Display: <DisplayName>
+  Faction: <FactionName>
+  Mount: <InternalMobName>
+  Health: <Number>
+  Damage: <Number>
+  Armor: <Number>
+  HealthBar:
+    Enabled: <true|false>
+    Offset: <Number>
+  BossBar:
+    Enabled: <true|false>
+    Title: <String>
+    Range: <Number>
+    Color: <ColorName>
+    Style: <StyleName>
+    CreateFog: <true|false>
+    DarkenSky: <true|false>
+    PlayMusic: <true|false>
+  DisplayOptions:
+    <Key>: <Value>
+  AIGoalSelectors:
+    - <Priority> <Goal>
+  AITargetSelectors:
+    - <Priority> <TargetRule>
+  Skills:
+    - <SkillAction> ~<Trigger>
+    - <SkillAction> @<TargetSelector> ~<Trigger>
+  Drops:
+    - <ItemName> <Chance> [<Min>-<Max>]
+  DamageModifiers:
+    - <DamageType> <Multiplier>
+  Equipment:
+    - <MainHandItem>
+    - <HelmetItem>
+    - <ChestplateItem>
+    - <LeggingsItem>
+    - <BootsItem>
+  Disguise: <DisguiseType>
+  DisguiseOptions:
+    Disguise.Burning: <true|false>
+    Disguise.Blocking: <true|false>
+    Disguise.Invisible: <true|false>
+    Disguise.Name: <String>
+    Disguise.ShowName: <true|false>
+    Disguise.Sneaking: <true|false>
+    Disguise.Sprinting: <true|false>
+    Disguise.ModifyBoundingBox: <true|false>
+    Disguise.Glowing: <true|false>
+    Disguise.Gliding: <true|false>
+  Options:
+    AlwaysShowName: <true|false>
+    AttackSpeed: <Number>
+    VisibleByDefault: <true|false>
+    Invisible: <true|false>
+    Collidable: <true|false>
+    DigOutOfGround: <true|false>
+    Despawn: <true|false|chunk|persistent|never|npc>
+    FollowRange: <Number>
+    Glowing: <true|false>
+    HealOnReload: <true|false>
+    KnockbackResistance: <Number>
+    MaxCombatDistance: <Number>
+    MovementSpeed: <Number>
+    Marker: <true|false>       # armor stands only
+    Small: <true|false>        # armor stands only
+    LockPitch: <true|false>
+    Invincible: <true|false>
+    Interactable: <true|false>
+    NoAI: <true|false>
+    NoDamageTicks: <Number>
+    NoGravity: <true|false>
+    PassthroughDamage: <true|false>
+    Persistent: <true|false>
+    PreventItemPickup: <true|false>
+  Modules:
+    ThreatTable: <true|false>
+    ImmunityTable: <true|false>
+    ThreatMultiplier: <Number>
+  Variables:
+    <VarName>: <Value>
+  Trades:
+    - <TradeDefinition>

@@ -1,0 +1,58 @@
+---
+title: Introduction
+description: Learn how to create plugins and mods for Minecraft Java and Bedrock.
+---
+
+import { Callout } from '@/components/callout'
+
+# Welcome to the MC Dev Guide
+
+Welcome to the **Minecraft Developer Guide** — your beginner-friendly companion to getting started with Minecraft plugin and mod development.
+
+Whether you're aiming to create server tools, gameplay mechanics, or entirely new experiences, this guide will help you understand the foundations and get coding quickly.
+
+<Callout type="info" title="Who this guide is for">
+This guide is great for beginners, server owners, and hobbyists looking to dive into Minecraft development — no prior experience with Java or JSON/YAML required.
+</Callout>
+
+---
+
+## 🧭 What This Guide Covers
+
+Throughout the pages in this guide, you’ll learn:
+
+- How to set up a Minecraft development environment
+- The difference between plugins and mods
+- How to use YAML and JSON for configurations
+- Basics of Java needed to start plugin development
+- Ideas to inspire your first custom creations
+
+---
+
+## ⚔️ Java vs Bedrock
+
+There are two main editions of Minecraft you’ll come across in development:
+
+| Feature         | Java Edition                       | Bedrock Edition                              |
+|-----------------|------------------------------------|----------------------------------------------|
+| Platform        | PC                                 | PC, consoles, mobile                          |
+| Modding support | High (Forge, Fabric, Spigot, etc.) | Limited, uses different APIs (like Add-Ons)  |
+| Language        | Java                               | JSON + scripting in JavaScript/Block coding  |
+| Community tools | Vast & open-source                 | Mostly proprietary or marketplace-based      |
+
+> 🧠 For development and server-side customization, **Java Edition** is the most flexible and widely supported.
+
+---
+
+## 🧩 Plugins vs Mods
+
+Understanding the difference is key to choosing your dev path:
+
+|                     | Plugins                              | Mods                                       |
+|---------------------|---------------------------------------|--------------------------------------------|
+| Runs on             | Server only (e.g., Spigot, Paper)     | Both client and server (e.g., Forge)       |
+| Requires client mod | ❌ No                                 | ✅ Yes (users must install mod too)         |
+| Programming language| Java                                  | Java                                       |
+| Use case            | Add server features, commands, APIs   | Add new blocks, mechanics, GUIs, etc.      |
+
+> If you're running a Minecraft **server**, plugins are usually easier and safer to maintain, especially for multiplayer.

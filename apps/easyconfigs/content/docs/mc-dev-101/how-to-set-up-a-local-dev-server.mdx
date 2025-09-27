@@ -1,0 +1,107 @@
+---
+title: How to set up a local dev server
+description: Set up a local test server on Windows or macOS.
+---
+
+# ⚙️ How to Set Up a Local Development Server
+
+Running a local test server is essential when developing plugins or mods—you should never test gameplay-changing code on a production server!
+
+---
+
+## Why You Need a Local Dev Server
+
+- **Test safely**, without affecting live players.
+- **Crash-proof features** while experimenting.
+- **Faster iteration**—no remote uploads or latency.
+
+You can think of it as your personal Minecraft development sandbox.
+
+---
+
+## 🧩 Prerequisites
+
+- Java 17 or 21 (depending on your server version)
+- A server jar (PaperMC is recommended)
+- Plugins or mods you’re working on
+- A terminal (Command Prompt or PowerShell on Windows, Terminal on macOS)
+
+---
+
+## ✅ Step-by-Step Setup
+
+---
+
+### **Step 1: Install Java**
+
+#### Windows
+1. Download and install OpenJDK from [Adoptium](https://adoptium.net).
+2. During installation, check **“Add to PATH”** and **“Set JAVA_HOME”**.
+
+#### macOS
+```bash
+brew install openjdk@21
+```
+
+Then add to your ~/.zshrc:
+
+```bash
+export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
+```
+
+---
+
+### **Step 2: Download the Server Jar**
+1. Choose PaperMC from papermc.io/downloads.
+2. Download the latest version matching your Minecraft server.
+3. Rename the jar to paper.jar and move it into a clean folder (e.g., ~/Minecraft/dev-server).
+
+---
+
+### **Step 3: Create the Launch Script** 
+#### Windows (start.bat):
+```bash
+java -Xms1G -Xmx2G -jar paper.jar nogui
+pause
+```
+
+#### macOS / Linux (start.sh):
+```bash
+#!/usr/bin/env bash
+java -Xms1G -Xmx2G -jar paper.jar nogui
+```
+
+Then:
+```bash
+chmod +x start.sh
+```
+Adjust -Xms/-Xmx based on available RAM.
+
+---
+
+### **Step 4: Accept the EULA**
+1. Run the script once.
+2. Open the generated eula.txt and change:
+`eula=false` to `eula=true`
+
+---
+
+### **Step 5: Add Your Plugin(s)**
+1. In the server directory, ensure there's a plugins/ folder.
+2. Add your plugin .jar file(s) or development build.
+
+---
+
+### **Step 6: Launch the Server**
+1. Run the script again:
+- On Windows: double-click start.bat.
+- On macOS/Linux: ./start.sh.
+
+The console window will show plugin load logs—if any crash, you’ll see stack traces here.
+
+---
+
+### **Step 7: Connect and Test**
+1. Launch Minecraft (matching the server version).
+2. Add `localhost` in your Multiplayer servers list.
+3. Join and start testing your plugin features.
