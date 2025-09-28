@@ -68,6 +68,29 @@ export default function CreateTemplatePage() {
     const templateFields: Record<string, any> = {}
     
     templateBlocks.forEach(block => {
+      // Clean and normalize the field name
+      const cleanedName = block.fieldName.trim().replace(/\s+/g, ' ')
+      
+      let sanitizedFieldName = ''
+      
+      // Check if it's already in PascalCase format (no spaces, starts uppercase, has letters)
+      const isPascalCase = /^[A-Z][a-zA-Z0-9]*$/.test(cleanedName)
+      
+      if (isPascalCase) {
+        // Already in PascalCase, just remove any invalid characters
+        sanitizedFieldName = cleanedName.replace(/[^a-zA-Z0-9]/g, '')
+      } else {
+        // Convert to PascalCase: split by spaces, capitalize all words
+        const words = cleanedName.split(' ').filter(word => word.length > 0)
+        sanitizedFieldName = words
+          .map((word) => {
+            const cleanWord = word.replace(/[^a-zA-Z0-9]/g, '')
+            // All words: capitalize first letter
+            return cleanWord.charAt(0).toUpperCase() + cleanWord.slice(1).toLowerCase()
+          })
+          .join('')
+      }
+      
       const fieldDefinition: Record<string, any> = {
         type: block.fieldType,
         required: block.required,
@@ -76,9 +99,9 @@ export default function CreateTemplatePage() {
 
       // Add default value if provided
       if (block.defaultValue) {
-        fieldDefinition.default = block.fieldType === 'boolean' 
-          ? block.defaultValue === 'true' 
-          : block.fieldType === 'number' 
+        fieldDefinition.default = block.fieldType === 'boolean'
+          ? block.defaultValue === 'true'
+          : block.fieldType === 'number'
           ? parseFloat(block.defaultValue) || 0
           : block.defaultValue
       }
@@ -94,7 +117,7 @@ export default function CreateTemplatePage() {
         fieldDefinition.example = block.defaultValue
       }
 
-      templateFields[block.fieldName] = fieldDefinition
+      templateFields[sanitizedFieldName] = fieldDefinition
     })
 
     const template = {
@@ -134,7 +157,7 @@ export default function CreateTemplatePage() {
   }
 
   const updateTemplateBlock = (id: number, field: string, value: any) => {
-    setTemplateBlocks(templateBlocks.map(block => 
+    setTemplateBlocks(templateBlocks.map(block =>
       block.id === id ? { ...block, [field]: value } : block
     ))
   }
@@ -144,16 +167,16 @@ export default function CreateTemplatePage() {
   }
 
   const addOptionToBlock = (blockId: number, option: string) => {
-    setTemplateBlocks(templateBlocks.map(block => 
-      block.id === blockId 
+    setTemplateBlocks(templateBlocks.map(block =>
+      block.id === blockId
         ? { ...block, options: [...block.options, option] }
         : block
     ))
   }
 
   const removeOptionFromBlock = (blockId: number, optionIndex: number) => {
-    setTemplateBlocks(templateBlocks.map(block => 
-      block.id === blockId 
+    setTemplateBlocks(templateBlocks.map(block =>
+      block.id === blockId
         ? { ...block, options: block.options.filter((_, index) => index !== optionIndex) }
         : block
     ))
@@ -173,16 +196,31 @@ export default function CreateTemplatePage() {
     redirect("/signin")
   }
 
+  // const templateCategories = [
+  //   "C", "C++", "C#", "CSS", "CQL",
+  //   "Diff", "Dockerfile", "Git Markdown", "Golang", "HTML",
+  //   "HTTP", "JavaScript", "JSON", "Lua", "Markdown",
+  //   "MariaDB", "MS SQL", "MySQL", "Nginx", "PHP",
+  //   "Plain Text", "PostgreSQL", "Properties", "Pug", "Python",
+  //   "Ruby", "Rust", "Sass", "SCSS", "Shell",
+  //   "SQL", "SQLite", "TOML", "TypeScript", "Vue",
+  //   "XML", "YAML"
+  // ]
   const templateCategories = [
-    "C", "C++", "C#", "CSS", "CQL",
-    "Diff", "Dockerfile", "Git Markdown", "Golang", "HTML",
-    "HTTP", "JavaScript", "JSON", "Lua", "Markdown",
-    "MariaDB", "MS SQL", "MySQL", "Nginx", "PHP",
-    "Plain Text", "PostgreSQL", "Properties", "Pug", "Python",
-    "Ruby", "Rust", "Sass", "SCSS", "Shell",
-    "SQL", "SQLite", "TOML", "TypeScript", "Vue",
-    "XML", "YAML"
-  ]
+  "JSON",
+  "YAML",
+  "XML",
+  "TOML",
+  "Markdown",
+  "Properties",
+  "PlainText",
+  "SQL",
+  "SQLite",
+  "MariaDB",
+  "MSSQL",
+  "PostgreSQL",
+  "CQL"
+]
 
   const licenseOptions = [
     "MIT", "Apache 2.0", "GPL v3", "BSD 3-Clause", "ISC", "Unlicense", "Custom"
@@ -298,9 +336,9 @@ export default function CreateTemplatePage() {
                     <Tag className="h-4 w-4 text-muted-foreground" />
                     <span className="font-medium">Field Definition</span>
                   </div>
-                  <Button 
-                    variant="ghost" 
-                    size="sm" 
+                  <Button
+                    variant="ghost"
+                    size="sm"
                     onClick={() => removeTemplateBlock(block.id)}
                     className="text-destructive hover:text-destructive"
                   >
@@ -320,8 +358,8 @@ export default function CreateTemplatePage() {
 
                   <div className="space-y-2">
                     <Label>Field Type *</Label>
-                    <Select 
-                      value={block.fieldType} 
+                    <Select
+                      value={block.fieldType}
                       onValueChange={(value) => updateTemplateBlock(block.id, 'fieldType', value)}
                     >
                       <SelectTrigger>
