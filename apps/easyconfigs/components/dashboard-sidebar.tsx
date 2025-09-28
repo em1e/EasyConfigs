@@ -35,7 +35,7 @@ import {
 
 const sidebarItems = [
   {
-    title: "Dashboard",
+    title: "Overview",
     href: "/dashboard",
     icon: Home,
   },
