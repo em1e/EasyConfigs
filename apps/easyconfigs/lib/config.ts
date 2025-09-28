@@ -1,31 +1,32 @@
 export const siteConfig = {
-  name: "shadcn/ui",
-  url: "https://ui.shadcn.com",
-  ogImage: "https://ui.shadcn.com/og.jpg",
+  name: "EasyConfigs",
+  url: process.env.NEXT_PUBLIC_APP_URL || process.env.NEXTAUTH_URL || "https://easyconfigs.com",
+  ogImage: `${process.env.NEXT_PUBLIC_APP_URL || process.env.NEXTAUTH_URL || "https://easyconfigs.com"}/og.jpg`,
   description:
-    "A set of beautifully-designed, accessible components and a code distribution platform. Works with your favorite frameworks. Open Source. Open Code.",
+    "Simple, powerful configuration generators for Minecraft servers. Create accurate config files, custom GUIs, and resource packs with our intuitive web-based tools.",
+  tagline: "Simple, powerful config generators for even the most complex Minecraft servers",
   links: {
     github: "https://github.com/em1e",
   },
   navItems: [
     {
-      href: "/docs/get-started",
-      label: "Docs",
-    },
-    {
       href: "/generators",
       label: "Generators",
     },
     {
-      href: "/docs/payment-plans",
-      label: "Payment Plans",
+      href: "/docs",
+      label: "Documentation",
     },
     {
-      href: "/docs/about",
+      href: "/pricing",
+      label: "Pricing",
+    },
+    {
+      href: "/about",
       label: "About",
     },
     {
-      href: "/docs/support",
+      href: "/contact",
       label: "Contact",
     },
   ],

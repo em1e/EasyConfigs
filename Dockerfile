@@ -84,5 +84,8 @@ RUN pnpm rebuild
 
 EXPOSE 4000
 
+# Create a startup script that generates Prisma client and starts the dev server
+RUN echo '#!/bin/sh\ncd /app/apps/easyconfigs\nnpx prisma generate --schema=./prisma/schema.prisma || echo "Prisma generation failed, continuing..."\ncd /app\nexec pnpm --filter=easyconfigs dev' > /app/start.sh && chmod +x /app/start.sh
+
 # Start EasyConfigs in development mode
-CMD ["pnpm", "--filter=easyconfigs", "dev"]
+CMD ["/app/start.sh"]

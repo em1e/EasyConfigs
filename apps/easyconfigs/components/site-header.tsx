@@ -19,34 +19,51 @@ export function SiteHeader() {
   const pageTree = source.pageTree
 
   return (
-    <header className="bg-background sticky top-0 z-50 w-full">
+    <header className="bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full border-b border-border/40">
       <div className="container-wrapper 3xl:fixed:px-0 px-6">
-        <div className="3xl:fixed:container flex h-(--header-height) items-center gap-2 **:data-[slot=separator]:!h-4">
+        <div className="3xl:fixed:container flex h-(--header-height) items-center gap-4 **:data-[slot=separator]:!h-4">
           <MobileNav
             tree={pageTree}
             items={siteConfig.navItems}
             className="flex lg:hidden"
           />
-          <Button
-            asChild
-            variant="ghost"
-            size="icon"
-            className="hidden size-8 lg:flex"
-          >
-            <Link href="/">
-              <Icons.logo className="size-5" />
-              <span className="sr-only">{siteConfig.name}</span>
+          
+          {/* Logo and Brand */}
+          <div className="flex items-center gap-2">
+            <Button
+              asChild
+              variant="ghost"
+              size="icon"
+              className="hidden size-8 lg:flex hover:bg-primary/10"
+            >
+              <Link href="/">
+                <Icons.logo className="size-5" />
+                <span className="sr-only">{siteConfig.name}</span>
+              </Link>
+            </Button>
+            <Link href="/" className="hidden lg:flex items-center space-x-2">
+              <span className="font-bold text-xl text-foreground">{siteConfig.name}</span>
             </Link>
-          </Button>
-          <MainNav items={siteConfig.navItems} className="hidden lg:flex" />
-          <div className="ml-auto flex items-center gap-2 md:flex-1 md:justify-end">
+          </div>
+          
+          <MainNav items={siteConfig.navItems} className="hidden lg:flex ml-6" />
+          
+          <div className="ml-auto flex items-center gap-3">
             <div className="hidden w-full flex-1 md:flex md:w-auto md:flex-none">
               <CommandMenu tree={pageTree} colors={colors} />
             </div>
-            <Separator
-              orientation="vertical"
-              className="ml-2 hidden lg:block"
-            />
+            
+            {/* Authentication buttons */}
+            <div className="hidden md:flex items-center gap-2">
+              <Button asChild variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
+                <Link href="/login">Log in</Link>
+              </Button>
+              <Button asChild size="sm" className="bg-primary hover:bg-primary/90">
+                <Link href="/signup">Sign up</Link>
+              </Button>
+            </div>
+            
+            <Separator orientation="vertical" className="ml-2 hidden lg:block" />
             <GitHubLink />
             <Separator orientation="vertical" className="3xl:flex hidden" />
             <SiteConfig className="3xl:flex hidden" />

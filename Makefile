@@ -19,6 +19,22 @@ run-bg:
 logs:
 	@docker-compose logs -f
 
+db: ## Start Prisma Studio to view database (if Prisma is working)
+	@echo "Starting Prisma Studio on http://localhost:5555"
+	@docker-compose exec easyconfigs-dev sh -c "cd apps/easyconfigs && npx prisma studio --hostname 0.0.0.0"
+
+db-view: ## View temporary database files (current setup)
+	@echo "=== Current Users ==="
+	@docker-compose exec easyconfigs-dev sh -c "cd apps/easyconfigs && if [ -f temp-users.json ]; then cat temp-users.json; else echo '[]'; fi"
+	@echo ""
+	@echo "=== Current Tokens ==="
+	@docker-compose exec easyconfigs-dev sh -c "cd apps/easyconfigs && if [ -f temp-tokens.json ]; then cat temp-tokens.json; else echo '[]'; fi"
+
+db-clear: ## Clear all users and tokens from database
+	@echo "Clearing all users and tokens..."
+	@docker-compose exec easyconfigs-dev sh -c "cd apps/easyconfigs && rm -f temp-users.json temp-tokens.json"
+	@echo "✅ Database cleared! All users and tokens have been removed."
+
 clean:
 	@docker-compose down
 

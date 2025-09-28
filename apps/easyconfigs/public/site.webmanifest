@@ -1,6 +1,11 @@
 {
-  "name": "",
-  "short_name": "",
+  "name": "EasyConfigs",
+  "short_name": "EasyConfigs",
+  "description": "Simple, powerful configuration generators for Minecraft servers",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -12,6 +17,5 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ],
-  "display": "standalone"
+  ]
 }
