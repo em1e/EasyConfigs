@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
 
     // Find the user
     const user = await prisma.user.findUnique({
-      where: { id: resetToken.userId }
+      where: { id: resetToken.userId ?? undefined }
     })
 
     if (!user) {
