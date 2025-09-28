@@ -10,6 +10,7 @@ import { MainNav } from "@/components/main-nav"
 import { MobileNav } from "@/components/mobile-nav"
 import { ModeSwitcher } from "@/components/mode-switcher"
 import { SiteConfig } from "@/components/site-config"
+import { AuthNav } from "@/components/auth-nav"
 // import blocks from "@/registry/__blocks__.json"
 import { Button } from "@/registry/new-york-v4/ui/button"
 import { Separator } from "@/registry/new-york-v4/ui/separator"
@@ -52,17 +53,7 @@ export function SiteHeader() {
             <div className="hidden w-full flex-1 md:flex md:w-auto md:flex-none">
               <CommandMenu tree={pageTree} colors={colors} />
             </div>
-            
-            {/* Authentication buttons */}
-            <div className="hidden md:flex items-center gap-2">
-              <Button asChild variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
-                <Link href="/login">Log in</Link>
-              </Button>
-              <Button asChild size="sm" className="bg-primary hover:bg-primary/90">
-                <Link href="/signup">Sign up</Link>
-              </Button>
-            </div>
-            
+            <AuthNav />
             <Separator orientation="vertical" className="ml-2 hidden lg:block" />
             <GitHubLink />
             <Separator orientation="vertical" className="3xl:flex hidden" />

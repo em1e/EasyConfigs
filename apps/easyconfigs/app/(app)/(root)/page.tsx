@@ -82,7 +82,7 @@ export default function IndexPage() {
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button asChild size="lg" className="text-lg px-8 py-6">
-                <Link href="/generators">Try EasyConfigs Now →</Link>
+                <Link href="/dashboard">Try EasyConfigs Now →</Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="text-lg px-8 py-6">
                 <Link href="/docs">Read the Docs</Link>
